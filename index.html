@@ -32,7 +32,7 @@
         <div class="hero-stats">
           <div><strong id="readiness">84</strong><span>Readiness</span></div>
           <div><strong id="load">76%</strong><span>Training load</span></div>
-          <div><strong>05</strong><span>Day streak</span></div>
+          <div><strong id="streak">00</strong><span>Day streak</span></div>
         </div>
       </div>
 
@@ -84,26 +84,22 @@
       </div>
       <div class="session-grid">
         <article class="session-summary">
-          <span class="tag">PUSH / CORE</span>
-          <h3>Signal 48</h3>
-          <p>Intensidad alta, volumen medio y descansos controlados. La sesión cambia con tu estado, no con el ego.</p>
+          <span class="tag" id="sessionTag">PUSH / CORE</span>
+          <h3 id="sessionTitle">Signal 48</h3>
+          <p id="sessionDescription">Intensidad alta, volumen medio y descansos controlados. La sesión cambia con tu estado, no con el ego.</p>
           <div class="session-meta">
-            <div><strong>48</strong><span>minutes</span></div>
-            <div><strong>07</strong><span>exercises</span></div>
-            <div><strong>8.1</strong><span>target RPE</span></div>
+            <div><strong id="sessionMinutes">48</strong><span>minutes</span></div>
+            <div><strong id="exerciseCount">07</strong><span>exercises</span></div>
+            <div><strong id="targetRpe">8.1</strong><span>target RPE</span></div>
           </div>
-          <button id="startBtn" class="btn dark wide" type="button" aria-pressed="false">Start session</button>
+          <div class="session-controls">
+            <button id="startBtn" class="btn dark wide" type="button" aria-pressed="false">Start session</button>
+            <button id="finishBtn" class="btn finish wide" type="button" disabled>Finish & save</button>
+          </div>
+          <p class="session-clock" id="sessionClock" aria-live="polite">00:00:00 · 0% complete</p>
         </article>
 
-        <div class="exercise-list" id="exerciseList">
-          <button type="button"><span>01</span><b>Incline press</b><em>4 × 8</em></button>
-          <button type="button"><span>02</span><b>Landmine press</b><em>3 × 10</em></button>
-          <button type="button"><span>03</span><b>Ring push-up</b><em>3 × AMRAP</em></button>
-          <button type="button"><span>04</span><b>Cable fly</b><em>3 × 12</em></button>
-          <button type="button"><span>05</span><b>Pallof press</b><em>4 × 12</em></button>
-          <button type="button"><span>06</span><b>Dead bug</b><em>3 × 16</em></button>
-          <button type="button"><span>07</span><b>Bike finisher</b><em>6 × 30s</em></button>
-        </div>
+        <div class="exercise-list" id="exerciseList"></div>
       </div>
     </section>
 
@@ -114,12 +110,10 @@
       </div>
       <div class="progress-card">
         <div class="progress-head">
-          <div><span>WEEKLY OUTPUT</span><strong>+14.2%</strong></div>
-          <p>vs previous 4-week average</p>
+          <div><span>WEEKLY OUTPUT</span><strong id="weeklyOutput">0 sessions</strong></div>
+          <p id="progressCaption">Complete a session to build your real history.</p>
         </div>
-        <div class="bars" aria-label="Progreso semanal">
-          <i style="--h:43%"></i><i style="--h:57%"></i><i style="--h:51%"></i><i style="--h:69%"></i><i style="--h:74%"></i><i style="--h:85%"></i><i style="--h:95%"></i>
-        </div>
+        <div class="bars" id="progressBars" aria-label="Progreso semanal"></div>
         <div class="days"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
       </div>
     </section>
