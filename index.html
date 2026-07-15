@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="KAY/FIT adaptive training experience by Brian Zuñiga" />
+  <title>KAY/FIT — Adaptive Training</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="nav">
+    <a class="logo" href="#top">KAY<span>/FIT</span></a>
+    <nav aria-label="Principal"><a href="#signals">Signals</a><a href="#session">Session</a><a href="#progress">Progress</a></nav>
+    <button id="themeBtn" class="icon-btn" type="button" aria-label="Cambiar tema">◐</button>
+  </header>
+  <main id="top">
+    <section class="hero section-pad">
+      <div class="hero-copy reveal"><p class="kicker">ADAPTIVE TRAINING / 2026</p><h1>Your body<br><em>sends signals.</em><br>Train accordingly.</h1><p class="intro">KAY/FIT traduce recuperación, energía y rendimiento en una decisión simple: cómo entrenar hoy.</p><div class="actions"><a class="btn primary" href="#session">Open today's session</a><button class="btn secondary" id="simulateBtn" type="button">Simulate new day</button></div><div class="hero-stats"><div><strong id="readiness">84</strong><span>Readiness</span></div><div><strong id="load">76%</strong><span>Training load</span></div><div><strong id="streak">00</strong><span>Day streak</span></div></div></div>
+      <div class="signal-core reveal" aria-label="Visualización de señales"><div class="core-shell"><span class="orbit orbit-a"></span><span class="orbit orbit-b"></span><span class="orbit orbit-c"></span><span class="dot dot-a">R</span><span class="dot dot-b">E</span><span class="dot dot-c">P</span><div class="core"><small>STATE</small><strong id="stateLabel">READY</strong></div></div><p>Recovery · Energy · Performance</p></div>
+    </section>
+    <section class="section-pad bordered reveal" id="signals"><div class="section-title"><p class="kicker">01 / DAILY SIGNALS</p><h2>Three inputs.<br>One training state.</h2></div><div class="cards"><article class="signal-card"><div class="card-head"><span>RECOVERY</span><strong id="recoveryValue">81</strong></div><div class="meter"><i id="recoveryMeter" style="--value:81%"></i></div><p>Sueño, fatiga y carga previa sugieren buena tolerancia al esfuerzo.</p></article><article class="signal-card"><div class="card-head"><span>ENERGY</span><strong id="energyValue">87</strong></div><div class="meter"><i id="energyMeter" style="--value:87%"></i></div><p>Reserva alta para trabajo explosivo y bloques de intensidad.</p></article><article class="signal-card"><div class="card-head"><span>PERFORMANCE</span><strong id="performanceValue">84</strong></div><div class="meter"><i id="performanceMeter" style="--value:84%"></i></div><p>La tendencia reciente permite progresar sin perseguir volumen vacío.</p></article></div></section>
+    <section class="section-pad bordered reveal" id="session"><div class="section-title"><p class="kicker">02 / TODAY</p><h2>A session shaped<br>by today's state.</h2></div><div class="session-grid"><article class="session-summary"><span class="tag" id="sessionTag">PUSH / CORE</span><h3 id="sessionTitle">Signal 48</h3><p id="sessionDescription">Intensidad alta, volumen medio y descansos controlados. La sesión cambia con tu estado, no con el ego.</p><div class="session-meta"><div><strong id="sessionMinutes">48</strong><span>minutes</span></div><div><strong id="exerciseCount">07</strong><span>exercises</span></div><div><strong id="targetRpe">8.1</strong><span>target RPE</span></div></div><div class="session-controls"><button id="startBtn" class="btn dark wide" type="button" aria-pressed="false">Start session</button><button id="finishBtn" class="btn finish wide" type="button" disabled>Finish & save</button></div><p class="session-clock" id="sessionClock" aria-live="polite">00:00:00 · 0% complete</p></article><div class="exercise-list" id="exerciseList"></div></div></section>
+    <section class="section-pad bordered reveal" id="progress"><div class="section-title"><p class="kicker">03 / PROGRESS</p><h2>See the signal.<br>Not just the sweat.</h2></div><div class="progress-card"><div class="progress-head"><div><span>WEEKLY OUTPUT</span><strong id="weeklyOutput">0 sessions</strong></div><p id="progressCaption">Complete a session to build your real history.</p></div><div class="bars" id="progressBars" aria-label="Progreso semanal"></div><div class="days" id="progressDays"></div><div class="day-detail" id="dayDetail" aria-live="polite"><span>SELECT A DAY</span><strong>Tap a day to inspect its training history.</strong><p>Duration, readiness and completed work will appear here.</p></div></div></section>
+  </main>
+  <footer><strong>KAY/FIT</strong><p>Concept and frontend direction by Brian Zuñiga.</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>
