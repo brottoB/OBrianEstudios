@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111111" />
+  <title>The King Llama — Virtual Fit</title>
+  <style>
+    :root{--bg:#f3efe7;--ink:#111;--card:#fff;--accent:#d6ff3f;--muted:#747474;--line:#ded9cf}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--ink)}
+    button,select{font:inherit}.app{min-height:100vh}.topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid var(--line);background:rgba(243,239,231,.92);position:sticky;top:0;z-index:20;backdrop-filter:blur(12px)}
+    .brand{font-weight:900;letter-spacing:-.05em;font-size:21px}.brand span{background:var(--accent);padding:2px 7px;border-radius:999px;margin-left:5px;font-size:11px;letter-spacing:.05em}.menu{font-size:26px;border:0;background:transparent}
+    .hero{padding:28px 20px 18px}.eyebrow{text-transform:uppercase;font-size:11px;letter-spacing:.18em;font-weight:800}.hero h1{font-size:clamp(40px,10vw,76px);line-height:.88;letter-spacing:-.075em;margin:12px 0 16px;max-width:850px}.hero p{max-width:650px;color:#4f4f4f;font-size:16px;line-height:1.55}
+    .workspace{display:grid;gap:16px;padding:0 16px 28px;max-width:1180px;margin:auto}.stage,.panel{background:var(--card);border:1px solid var(--line);border-radius:24px}.stage{min-height:560px;display:flex;flex-direction:column;overflow:hidden;position:relative}.stage-head{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid #eee}.badge{background:#111;color:white;padding:7px 11px;border-radius:999px;font-size:12px}.model-area{flex:1;position:relative;display:grid;place-items:center;background:radial-gradient(circle at 50% 32%,#fff 0,#eee8dc 50%,#dad2c4 100%)}
+    .model{position:relative;width:240px;height:430px;transition:.25s transform}.head{position:absolute;width:94px;height:112px;border-radius:44% 44% 48% 48%;background:#a97658;left:73px;top:15px;z-index:3}.ear{position:absolute;width:27px;height:54px;background:#a97658;border-radius:90% 15% 90% 10%;top:-27px}.ear.left{left:4px;transform:rotate(-18deg)}.ear.right{right:4px;transform:scaleX(-1) rotate(-18deg)}.hair{position:absolute;width:82px;height:38px;background:#17120f;border-radius:50% 60% 25% 15%;left:6px;top:2px}.eye{position:absolute;width:8px;height:8px;background:#111;border-radius:50%;top:50px}.eye.left{left:24px}.eye.right{right:24px}.nose{position:absolute;width:16px;height:11px;background:#704831;border-radius:50%;left:39px;top:69px}.body{position:absolute;width:174px;height:230px;left:33px;top:118px;background:#c48b69;border-radius:52px 52px 35px 35px}.legs{position:absolute;width:142px;height:150px;left:49px;top:315px}.leg{position:absolute;width:58px;height:140px;background:#343434;border-radius:0 0 22px 22px}.leg:first-child{left:0}.leg:last-child{right:0}.shirt{position:absolute;width:190px;height:218px;left:25px;top:116px;background:#111;border-radius:42px 42px 25px 25px;z-index:2;display:grid;place-items:center;text-align:center;color:#fff;font-weight:950;letter-spacing:-.04em;padding:20px;transition:.25s}.shirt:before,.shirt:after{content:"";position:absolute;width:54px;height:155px;background:inherit;top:12px;border-radius:30px}.shirt:before{left:-30px;transform:rotate(13deg)}.shirt:after{right:-30px;transform:rotate(-13deg)}.shirt-logo{position:relative;z-index:2;font-size:27px;line-height:.9}.shirt-logo small{display:block;font-size:9px;letter-spacing:.2em;margin-top:10px}.size-s .shirt{transform:scale(.9)}.size-l .shirt{transform:scale(1.08)}.size-xl .shirt{transform:scale(1.16)}
+    .panel{padding:20px}.section{padding:16px 0;border-bottom:1px solid #eee}.section:first-child{padding-top:0}.section:last-child{border:0;padding-bottom:0}.section h3{margin:0 0 12px;font-size:14px}.choices{display:flex;gap:9px;flex-wrap:wrap}.choice{border:1px solid #ccc;background:white;padding:10px 13px;border-radius:12px;font-weight:700}.choice.active{background:#111;color:white;border-color:#111}.swatch{width:38px;height:38px;border-radius:50%;border:3px solid white;box-shadow:0 0 0 1px #bbb}.swatch.active{box-shadow:0 0 0 3px var(--accent)}.cta{width:100%;border:0;background:var(--accent);font-weight:950;padding:16px;border-radius:15px;margin-top:15px;font-size:16px}.price{display:flex;justify-content:space-between;align-items:center;margin-top:14px}.price strong{font-size:28px}.footer{text-align:center;padding:22px;color:#777;font-size:12px}
+    @media(min-width:820px){.workspace{grid-template-columns:1.45fr .75fr;padding:0 24px 50px}.hero{max-width:1180px;margin:auto;padding:55px 24px 30px}.stage{min-height:650px}.panel{align-self:start;position:sticky;top:84px}.topbar{padding:18px 34px}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar"><div class="brand">THE KING LLAMA <span>LAB</span></div><button class="menu" aria-label="Menú">☰</button></header>
+  <section class="hero"><div class="eyebrow">Streetwear · Barcelona × Andes</div><h1>PRUÉBATE LA IDEA<br>ANTES DE VESTIRLA.</h1><p>Elige personaje, diseño, color y talla. Este es el primer prototipo del probador virtual de The King Llama.</p></section>
+  <main class="workspace">
+    <section class="stage">
+      <div class="stage-head"><strong>Vista previa</strong><span class="badge" id="fitBadge">Talla M · Regular fit</span></div>
+      <div class="model-area">
+        <div class="model size-m" id="model">
+          <div class="head"><div class="ear left"></div><div class="ear right"></div><div class="hair"></div><div class="eye left"></div><div class="eye right"></div><div class="nose"></div></div>
+          <div class="body"></div><div class="shirt" id="shirt"><div class="shirt-logo" id="shirtLogo">KEEP<br>SMILING<small>THE KING LLAMA</small></div></div>
+          <div class="legs"><div class="leg"></div><div class="leg"></div></div>
+        </div>
+      </div>
+    </section>
+    <aside class="panel">
+      <div class="section"><h3>1. Personaje</h3><div class="choices" id="characters"><button class="choice active" data-name="Otto">Otto</button><button class="choice" data-name="Lissi">Lissi</button><button class="choice" data-name="Lucho">Lucho</button><button class="choice" data-name="Peter">Peter</button></div></div>
+      <div class="section"><h3>2. Diseño</h3><div class="choices" id="designs"><button class="choice active" data-design="KEEP|SMILING">Keep Smiling</button><button class="choice" data-design="THE KING|LLAMA">The King Llama</button><button class="choice" data-design="BORN TO|CREATE">Born to Create</button></div></div>
+      <div class="section"><h3>3. Color</h3><div class="choices" id="colors"><button class="swatch active" aria-label="Negro" data-color="#111111"></button><button class="swatch" aria-label="Crema" data-color="#e9dfca" style="background:#e9dfca"></button><button class="swatch" aria-label="Granate" data-color="#681f2c" style="background:#681f2c"></button><button class="swatch" aria-label="Verde" data-color="#304438" style="background:#304438"></button></div></div>
+      <div class="section"><h3>4. Talla</h3><div class="choices" id="sizes"><button class="choice" data-size="s">S</button><button class="choice active" data-size="m">M</button><button class="choice" data-size="l">L</button><button class="choice" data-size="xl">XL</button></div></div>
+      <div class="price"><span>Prototipo seleccionado</span><strong>34,90 €</strong></div><button class="cta" id="saveBtn">GUARDAR MI LOOK</button>
+    </aside>
+  </main>
+  <footer class="footer">© 2026 THE KING LLAMA · Una idea original de Brian Zuñiga</footer>
+</div>
+<script>
+  const model=document.getElementById('model'),shirt=document.getElementById('shirt'),logo=document.getElementById('shirtLogo'),badge=document.getElementById('fitBadge');
+  function activate(group,button){document.querySelectorAll('#'+group+' button').forEach(b=>b.classList.remove('active'));button.classList.add('active')}
+  document.getElementById('characters').onclick=e=>{if(!e.target.dataset.name)return;activate('characters',e.target);model.style.transform=e.target.dataset.name==='Lissi'?'scale(.96) translateY(7px)':e.target.dataset.name==='Lucho'?'scale(.9) translateY(20px)':e.target.dataset.name==='Peter'?'scale(1.04)':'scale(1)'};
+  document.getElementById('designs').onclick=e=>{if(!e.target.dataset.design)return;activate('designs',e.target);const [a,b]=e.target.dataset.design.split('|');logo.innerHTML=`${a}<br>${b}<small>THE KING LLAMA</small>`};
+  document.getElementById('colors').onclick=e=>{if(!e.target.dataset.color)return;activate('colors',e.target);shirt.style.background=e.target.dataset.color;shirt.style.color=e.target.dataset.color==='#e9dfca'?'#111':'#fff'};
+  document.getElementById('sizes').onclick=e=>{if(!e.target.dataset.size)return;activate('sizes',e.target);model.classList.remove('size-s','size-m','size-l','size-xl');model.classList.add('size-'+e.target.dataset.size);badge.textContent='Talla '+e.target.textContent+' · '+(e.target.dataset.size==='s'?'Slim fit':e.target.dataset.size==='xl'?'Oversize fit':'Regular fit')};
+  document.getElementById('saveBtn').onclick=()=>{const old=document.getElementById('saveBtn').textContent;document.getElementById('saveBtn').textContent='✓ LOOK GUARDADO';setTimeout(()=>document.getElementById('saveBtn').textContent=old,1800)};
+</script>
+</body>
+</html>
